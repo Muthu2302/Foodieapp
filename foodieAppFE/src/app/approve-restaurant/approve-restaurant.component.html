@@ -1,0 +1,102 @@
+<!-- Toolbar -->
+<p>
+    <mat-toolbar class="bg">
+      <a href="/admin" matTooltip="home">
+        <img src="./assets/logo.jpg" alt="logo.jpg" style="height: 60px; width: 120px;">
+      </a>
+      <h1 style="margin-left: 30vw; font-size: xx-large; font-family:'Rubik Marker Hatch', cursive;">Approve Restaurant</h1>
+      <span class="example-spacer"></span>
+      <button mat-icon-button matTooltip="username" style="margin-right: 3.5vw;">
+        <mat-icon>account_circle</mat-icon>Hi&nbsp;Admin
+      </button>
+    </mat-toolbar>
+</p>
+
+<!-- Cards -->
+
+<div class="bg-img">
+  <mat-grid-list cols="5">
+    <mat-grid-tile *ngFor="let emailId of restaurantId">
+      <mat-card class="bg" style="margin-top: -12vh;" [hidden]="emailId == null">
+        <mat-card-header style="margin-left: -15px;">
+          <mat-card-title>
+            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+              <mat-icon>mail</mat-icon>
+              <span style="font-size: larger;">&nbsp;&nbsp;{{emailId}}</span>
+            </button>
+          </mat-card-title>
+          <mat-card-subtitle>&nbsp;&nbsp;Restaurant Id
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <button type="button" class="btn btn-outline-danger" style="color: #fff; width: 6vw;" (click)="rejectRestaurant(emailId)">Discard</button>
+          <span style="margin-left: 1vw;"></span>      
+          <button type="button" class="btn btn-outline-success" style="color: #fff; width: 6vw;" (click)="approveRestaurant(emailId)">Approve</button>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list> 
+</div>
+
+    <!-- Footer -->
+    <footer class="text-center text-white" style="background-color: #f1f1f1;">
+      <!-- Grid container -->
+      <div class="container pt-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+          <!-- Facebook -->
+          <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="facebook.com"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-facebook-f"></i
+          ></a>
+  
+          <!-- Twitter -->
+          <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="twitter.com"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-twitter"></i
+          ></a>
+  
+          <!-- Google -->
+          <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="google.com"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-google"></i
+          ></a>
+  
+          <!-- Instagram -->
+          <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="instagram.com"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-instagram"></i
+          ></a>
+  
+          <!-- Linkedin -->
+          <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="linkedin.com"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-linkedin"></i
+          ></a>
+      </section>
+      <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+  
+      <!-- Copyright -->
+      <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright:
+      <a class="text-dark" href="landing">foodie.com</a>
+      </div>
+      <!-- Copyright -->
+  </footer>

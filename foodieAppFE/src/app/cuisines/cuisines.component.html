@@ -1,0 +1,135 @@
+<!-- Toolbar -->
+<p>
+    <mat-toolbar class="bg">
+      <a href="/custdash" matTooltip="home">
+        <img src="./assets/logo.jpg" alt="logo.jpg" style="height: 60px; width: 120px;">
+      </a>
+
+      <span style="margin-left: 28vw;"></span>
+
+      <!-- Search -->
+      <mat-form-field class="example-form-field" style="width: 25vw;" matTooltip="search cuisine based on cuisineName">
+        <mat-label>Cuisine</mat-label>
+        <input matInput type="text" [(ngModel)]="value" placeholder="Ex. Biryani" [matAutocomplete]="auto" [formControl]="myControl">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="refresh()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <span style="margin-right: 2px;"></span>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with search icon" (click)="searchValue()" matTooltip="search">
+          <mat-icon>search</mat-icon>
+      </button>
+
+      <span class="example-spacer"></span>
+      <button mat-icon-button matTooltip="username" style="margin-right: 5.5vw;">
+        <mat-icon>account_circle</mat-icon>Hi&nbsp;{{userName}}
+      </button>
+      <a mat-icon-button style="color: #fff;" href="/cart" matTooltip="cart">
+        <!-- matBadge="15" matBadgeColor="warn" -->
+        <mat-icon matBadge="{{cart}}" matBadgeColor="warn" [matBadgeHidden]="cart == 0">shopping_cart</mat-icon>
+      </a>
+    </mat-toolbar>
+</p>
+
+<!-- Cards -->
+<div class="bg-img">
+    <mat-grid-list cols="4" style="padding-top: 18px;">
+      <mat-grid-tile *ngFor="let metadata of cuisine | filter:value">
+        <mat-card class="bg">
+          <mat-card-header>
+            <mat-card-title>{{metadata.cuisineName}}</mat-card-title>
+            <mat-card-subtitle>Cuisine Name
+              <button mat-button [matMenuTriggerFor]="menu" style="color: #fff; margin-left: 4.5vw;" matTooltip="info">
+                <mat-icon>info</mat-icon>
+              </button>
+            </mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{metadata.image}}" style="height: 200px; width: 310px;">
+          <mat-card-content style="margin-left: 15px;">     
+            
+            <span><mat-icon matTooltip="price">currency_rupee</mat-icon></span>
+              <span style="font-size: 18px;">
+                &nbsp;{{metadata.price}}
+                <span style="margin-left: 6vw;"></span>
+                <button mat-button matTooltip="add to cart" (click)="addToCart(metadata)">
+                  <mat-icon>add_box</mat-icon>
+                </button>
+              </span>
+              
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item class="bg" matTooltip="rating"><mat-icon>star</mat-icon>&nbsp;&nbsp;&nbsp;{{metadata.rating}}</button>
+                <button mat-menu-item class="bg" matTooltip="decription"><mat-icon>description</mat-icon>&nbsp;&nbsp;&nbsp;{{metadata.decription}}</button>
+              </mat-menu>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list> 
+  </div>
+
+  <!-- Footer -->
+<footer class="text-center text-white" style="background-color: #f1f1f1;">
+  <!-- Grid container -->
+  <div class="container pt-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="facebook.com"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="twitter.com"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="google.com"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="instagram.com"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="linkedin.com"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright:
+    <a class="text-dark" href="landing">foodie.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>

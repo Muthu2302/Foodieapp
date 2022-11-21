@@ -1,0 +1,35 @@
+.card{
+    border: none;
+    width: 35vw;
+    padding: 40px;
+    position: absolute;
+    margin-top: -13vh;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background: rgb(185, 167, 172);
+    background: linear-gradient(90deg, #8e26ac 0%, rgb(190, 127, 172) 100%);
+}
+
+.card h1,h6,label,a {
+    color: #fff;
+}
+
+.bg-img{
+    background-image: url("src\assets\mainbg1.jpg"); 
+    min-height: 80%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.bg{
+    background: rgb(185, 167, 172);
+    background: linear-gradient(90deg, #8e26ac 0%, rgb(190, 127, 172) 100%);
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}

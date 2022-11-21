@@ -1,0 +1,103 @@
+<div class="bg-img">
+
+    <!-- Toolbar -->
+    <mat-toolbar class="bg">
+        <a href="/landing">
+            <img src="./assets/logo.jpg" alt="logo.jpg" style="height: 60px; width: 120px;">
+        </a>
+        <span style="margin-left: 30vw;"></span>
+        <span class="example-spacer"></span>
+        <a matTooltip="Sign Up" mat-icon-button style="color: #fff;" href="/register">
+          <mat-icon>app_registration</mat-icon>
+        </a>
+    </mat-toolbar>
+    
+    <!-- Cards -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="text-center">
+                        <h1>Login</h1>
+                        <h6>Please enter emailId & password</h6>
+                    </div>
+                    <form [formGroup]="loginForm" (ngSubmit)="loginProcess()">
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Email Id</label>
+                          <input type="email" class="form-control" name="emailId" formControlName="emailId" placeholder="emailId">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input type="password" class="form-control" name="password" formControlName="password" placeholder="password" required>
+                        </div>
+                        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-outline-primary" style="width: 29.6vw; color: #fff;">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <!-- Footer -->
+    <footer class="text-center text-white" style="background-color: #f1f1f1;">
+        <!-- Grid container -->
+        <div class="container pt-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="facebook.com"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-facebook-f"></i
+            ></a>
+    
+            <!-- Twitter -->
+            <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="twitter.com"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-twitter"></i
+            ></a>
+    
+            <!-- Google -->
+            <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="google.com"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-google"></i
+            ></a>
+    
+            <!-- Instagram -->
+            <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="instagram.com"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-instagram"></i
+            ></a>
+    
+            <!-- Linkedin -->
+            <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="linkedin.com"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-linkedin"></i
+            ></a>
+        </section>
+        <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+    
+        <!-- Copyright -->
+        <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-dark" href="landing">foodie.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>

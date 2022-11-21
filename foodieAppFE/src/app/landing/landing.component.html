@@ -1,0 +1,114 @@
+<!-- Toolbar -->
+<mat-toolbar class="bg">
+    <img src="./assets/logo.jpg" alt="logo.jpg" style="height: 60px; width: 120px;">
+    <span style="margin-left: 30vw;"></span>
+    <mat-form-field class="example-form-field" style="width: 25vw;" matTooltip="search restaurant based on city">
+      <mat-label>City</mat-label>
+      <input matInput type="text" [(ngModel)]="value" placeholder="Ex. Akola">
+      <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with search icon" matTooltip="search" (click)="searchValue()">
+        <mat-icon>search</mat-icon>
+    </button>
+    <span class="example-spacer"></span>
+    <a matTooltip="Sign Up" mat-icon-button style="color: #fff;" href="/register">
+      <mat-icon>app_registration</mat-icon>
+    </a>
+    <a matTooltip="Login" mat-icon-button style="color: #fff;" href="/login">
+      <mat-icon>login</mat-icon>
+    </a>
+</mat-toolbar>
+
+<div class="bg-img">
+    <mat-grid-list cols="4" style="padding-top: 1vh;">
+        <mat-grid-tile *ngFor="let metadata of data">
+          <mat-card class="bg">
+            <mat-card-header>
+              <mat-card-title>{{metadata.restaurantName}}</mat-card-title>
+              <mat-card-subtitle>Restaurant Name
+                <button mat-button [matMenuTriggerFor]="menu" style="color: #fff; margin-left: 4.5vw;" matTooltip="info">
+                  <mat-icon>info</mat-icon>
+                </button>
+              </mat-card-subtitle>
+            </mat-card-header>
+              <img mat-card-image src="{{metadata.imageUrl}}" style="height: 200px; width: 310px;">
+            <mat-card-content style="margin-left: 15px;">     
+              <span><mat-icon matTooltip="city">location_city</mat-icon></span>
+                <span style="font-size: 18px; color: #fff;">
+                  &nbsp;&nbsp;&nbsp;&nbsp;{{metadata.city}}
+                </span>
+                
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item class="bg"><mat-icon>mail</mat-icon>&nbsp;&nbsp;&nbsp;{{metadata.emailId}}</button>
+                  <button mat-menu-item class="bg"><mat-icon>call</mat-icon>&nbsp;&nbsp;&nbsp;{{metadata.phoneNo}}</button>
+                </mat-menu>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list> 
+</div>
+
+<!-- Footer -->
+<footer class="text-center text-white" style="background-color: #f1f1f1;">
+  <!-- Grid container -->
+  <div class="container pt-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="https://www.facebook.com/"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="https://www.twitter.com/"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="https://www.google.com/"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="https://www.instagram.com/"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="https://www.linkedin.com/"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright:
+    <a class="text-dark" href="landing">foodie.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>

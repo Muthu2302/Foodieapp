@@ -1,0 +1,33 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.bg-img{
+    background-image: url("src\assets\mainbg1.jpg"); 
+    min-height: 71%;
+    min-width: fit-content;
+
+  /* Center and scale the image nicely */
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.card{
+    border: none;
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    margin-top: -3%;
+    left: 75%;
+    transform: translate(-50%, 50%);
+    background: rgb(206, 184, 123);
+    background: linear-gradient(90deg, #8e263b 0%, rgb(206, 184, 123) 100%);
+}
+
+.bg{
+    background: rgb(185, 167, 172);
+    background: linear-gradient(90deg, #8e26ac 0%, rgb(190, 127, 172) 100%);
+}

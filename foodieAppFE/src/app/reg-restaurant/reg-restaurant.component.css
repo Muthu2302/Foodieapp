@@ -1,0 +1,40 @@
+.card{
+    border: none;
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    margin-top: -45vh;
+    /* margin-top: -265px; */
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background: rgb(185, 167, 172);
+    background: linear-gradient(90deg, #8e26ac 0%, rgb(190, 127, 172) 100%);
+}
+
+.card h1,h6,label {
+    color: #fff;
+}
+
+.bg-img{
+    background-image: url("src\assets\mainbg1.jpg"); 
+    min-height: 130%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.bg{
+    background: rgb(185, 167, 172);
+    background: linear-gradient(90deg, #8e26ac 0%, rgb(190, 127, 172) 100%);
+}

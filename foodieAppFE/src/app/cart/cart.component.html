@@ -1,0 +1,146 @@
+<!-- Toolbar -->
+<p>
+    <mat-toolbar class="bg">
+      <a href="/cuisines" matTooltip="previous">
+        <img src="./assets/logo.jpg" alt="logo.jpg" style="height: 60px; width: 120px;">
+      </a>
+      <h1 style="margin-left: 35vw; font-size: xx-large; font-family:'Rubik Marker Hatch', cursive;">Cart</h1>
+      <span class="example-spacer"></span>
+      <button mat-icon-button matTooltip="username" style="margin-right: 5.5vw;">
+        <mat-icon>account_circle</mat-icon>Hi&nbsp;{{userName}}
+      </button>
+    </mat-toolbar>
+</p>
+
+<!-- Cards -->
+<div class="bg-img">
+    <button *ngIf="cart== 0" mat-icon-button style="padding-top: 30vh; padding-left: 30vw; font-size: 70px; font-weight: bolder; font-family:'Rubik Marker Hatch', cursive; color: #8e26ac;">
+      <mat-icon style="font-size: 70px;">shopping_cart</mat-icon>&nbsp;&nbsp;Cart is empty.
+    </button>
+
+    <mat-grid-list cols="4">
+        <mat-grid-tile *ngFor="let metadata of cuisine">
+        <mat-card class="bg">
+            <mat-card-header>
+            <mat-card-title>{{metadata.cuisineName}}</mat-card-title>
+            <input type="hidden" value="{{metadata.cuisineName}}" id="cuisineName">
+            <mat-card-subtitle>Cuisine Name
+                <button mat-button [matMenuTriggerFor]="menu" style="color: #fff; margin-left: 4.5vw;" matTooltip="info">
+                <mat-icon>info</mat-icon>
+                </button>
+            </mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{metadata.image}}" style="height: 200px; width: 310px; margin-top: -15px;">
+            <mat-card-content style="margin-left: 15px; margin-top: -10px;">     
+                <span><mat-icon matTooltip="price">currency_rupee</mat-icon></span>
+                <span style="font-size: 18px;">
+                &nbsp;{{metadata.price}}
+                <span style="margin-left: 6vw;"></span>
+                <button mat-button matTooltip="remove from cart" (click)="deleteCuisinesFromCart(metadata.cuisineName)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                </span>
+                
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item class="bg" matTooltip="rating"><mat-icon>star</mat-icon>&nbsp;&nbsp;&nbsp;{{metadata.rating}}</button>
+                    <button mat-menu-item class="bg" matTooltip="decription"><mat-icon>description</mat-icon>&nbsp;&nbsp;&nbsp;{{metadata.decription}}</button>
+                </mat-menu>
+            </mat-card-content>
+            <mat-card-actions style="margin-top: -20px; text-align: center;">
+                <!-- <button mat-mini-fab color="primary" (click)="increaseQuantity(metadata)">
+                    <mat-icon>add</mat-icon>
+                </button>
+                <span class="mx-2" [hidden]="quantity <= 0">{{quantity}}</span>
+                <button mat-mini-fab color="primary" (click)="decreaseQuantity(metadata)">
+                    <mat-icon>remove</mat-icon>
+                </button> -->
+            </mat-card-actions>
+        </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+<!-- Table -->
+    <table class="bg" style="margin-top: 10px; width: 40vw; margin-left: 30vw; margin-right: 30vw; font-family:'Rubik Marker Hatch', cursive;" [hidden]="cart == 0">
+        <thead style="color: rgba(239, 255, 68, 0.995); font-size: 20px;">
+            <tr>
+                <th scope="col">Cuisine Name</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody style="color: white; font-size: 15px;">
+            <tr *ngFor="let metadata of cuisine">
+                <td>{{metadata.cuisineName}}&nbsp;×&nbsp;{{quantity}}</td>
+                <td>&#8377; {{metadata.price}}</td>
+            </tr>
+        </tbody>
+        <tfoot style="color: #fff; font-size: 15px;">
+            <tr>
+                <td>Total</td>
+                <td>Rs. {{total}}</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<!-- Footer -->
+<footer class="text-center text-white" style="background-color: #f1f1f1;">
+    <!-- Grid container -->
+    <div class="container pt-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="facebook.com"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+  
+        <!-- Twitter -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="twitter.com"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-twitter"></i
+        ></a>
+  
+        <!-- Google -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="google.com"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-google"></i
+        ></a>
+  
+        <!-- Instagram -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="instagram.com"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-instagram"></i
+        ></a>
+  
+        <!-- Linkedin -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="linkedin.com"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright:
+      <a class="text-dark" href="landing">foodie.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>  
